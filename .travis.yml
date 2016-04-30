@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: uOckhrzt2sAPQqa28DmzEopJBv/DL+CDooOlooLjeGp4tVrLXpq2hXPLXfqIslKTHfe8hXVpsyW8rU7KcYkr0PzzuJ7oHP+dYxsruQj2yrW49DoaMbP9zyH8WbMf5Ce39DRapzLEO/1LcnU7YaGIAJKuCB5jd75exowzDTbmHcDWgC5B4RVljTC6A3735JaDzX5i5VD8vTQosdHRNJU+q8IjfgNJ0bViAS5iFW91/LfGVAenp1ZENd1dKfsj65JRpyQ0nL3CYNe1rpqUEv1o13XO5xI/INRI1OjAEutlgfMhWdpvOVRRbrujo97iy64FjcOpjzML21IZb6okHRAxGM49WCZNktsSLb9t4tYmG0YDGMGQ0GvU3O6WP4TKqt1EojFp6vetYND1TdOhsBsVosOMtbPP/lKfnZ7UMDjmC4DBroK/VAL3Dwf/7lGPi9l2dDYN0MVJZR2NRkFhJflnbCUJPakWrB3Kn2brkdKBREXbH4QkMlV7vqiJX0qWz+i0crH7e+sCdjYWuBtrU6gpIOnUVMkmcVyTyttzBTGwwiQE+40g2PsUzzXlzT6pJp5PXAJS6x+6EcjsRqN3SgOabTM06CtaPsW5/iDEj8Hj5+fesGYnpJZCiP5e1bqOqnVOKu+2TAUw9aB/qu8iUhMF7u2bmtAMhYyTd89y8H10lNo=
+  app: octopus-messenger-ui
+  on:
+    repo: octopus-team/messenger-ui
